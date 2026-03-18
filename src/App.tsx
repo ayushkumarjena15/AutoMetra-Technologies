@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ChevronDown, Star } from 'lucide-react';
 import './index.css';
 
 const sliderData = [
-  "DISCOVER WHO WE ARE",
-  "AI-DRIVEN LEGACY MIGRATIONS",
-  "OPTIMIZE CLOUD STRATEGIES"
+  { text: "DISCOVER WHO WE ARE", image: "/assets/slide1_bg.png" },
+  { text: "AI-DRIVEN LEGACY MIGRATIONS", image: "/assets/slide2_bg.png" },
+  { text: "OPTIMIZE CLOUD STRATEGIES", image: "/assets/slide3_bg.png" }
 ];
 
 function App() {
@@ -32,7 +32,19 @@ function App() {
     <>
       <div className="hero-overlay"></div>
       <div className="video-background">
-        <img src="/assets/hero_bg.png" alt="Developers at work" className="bg-img" />
+        <AnimatePresence mode="popLayout">
+          <motion.img 
+            key={activeSlide}
+            src={sliderData[activeSlide].image} 
+            alt="Background" 
+            className="bg-img" 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            style={{ position: 'absolute', top: 0, left: 0 }}
+          />
+        </AnimatePresence>
       </div>
 
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
@@ -100,7 +112,7 @@ function App() {
       <div className="slider-wrapper">
         <div className="container slider-container">
           <div className="slider-items">
-            {sliderData.map((text, index) => (
+            {sliderData.map((item, index) => (
               <div 
                 key={index} 
                 className={`slider-item ${index === activeSlide ? 'active' : ''}`}
@@ -117,7 +129,7 @@ function App() {
                     />
                   )}
                 </div>
-                <div className="slider-text">0{index + 1} | {text}</div>
+                <div className="slider-text">0{index + 1} | {item.text}</div>
               </div>
             ))}
           </div>
