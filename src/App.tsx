@@ -38,16 +38,7 @@ function App() {
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container header-container">
           <div className="logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 19.93C7.05 19.43 4 16.05 4 12C4 7.95 7.05 4.57 11 4.07V19.93ZM13 4.07C16.95 4.57 20 7.95 20 12C20 16.05 16.95 19.43 13 19.93V4.07Z" fill="url(#paint0_linear)"/>
-              <defs>
-                <linearGradient id="paint0_linear" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#FF5A00"/>
-                  <stop offset="1" stopColor="#FFB900"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <span>Software Mind</span>
+            <img src="/autometra_logo_transparent.png" alt="AutoMetra Technologies" style={{ height: '32px', filter: 'brightness(0) invert(1)' }} />
           </div>
           
           <nav className="main-nav">
